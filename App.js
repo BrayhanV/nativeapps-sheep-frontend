@@ -1,21 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NativeRouter, Route } from "react-router-native";
+import Context from "./Context";
+import { Creation } from "./Pages/Creation";
+import { Home } from "./Pages/Home";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Context.Provider>
+      <NativeRouter>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Creation" component={Creation} />
+      </NativeRouter>
+    </Context.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
